@@ -61,7 +61,8 @@ class QandasController < ApplicationController
 
     respond_to do |format|
       if @qanda.update_attributes(params[:qanda])
-        format.html { redirect_to @qanda, notice: 'Qanda was successfully updated.' }
+        flash[:notice] = "Qanda was successfully updated."
+        format.html { redirect_to @qanda }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
