@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @qanda.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @qanda.answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_qanda_path(@qanda) %> |
+<%= link_to 'Back', qandas_path %>
