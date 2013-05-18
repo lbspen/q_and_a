@@ -1,4 +1,6 @@
 QAndA::Application.routes.draw do
+  root :to => "qandas#index"
+
   resources :qandas
 
 
