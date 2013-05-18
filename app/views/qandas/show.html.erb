@@ -9,5 +9,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_qanda_path(@qanda) %> |
+<%= link_to 'Edit', edit_qanda_path(@qanda) %> 
+<%= link_to 'Destroy', qanda_path(@qanda), :method => :delete,  :confirm => 'Are you sure?'  %>
 <%= link_to 'Back', qandas_path %>

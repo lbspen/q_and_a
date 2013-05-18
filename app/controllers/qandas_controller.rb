@@ -78,6 +78,7 @@ class QandasController < ApplicationController
     @qanda.destroy
 
     respond_to do |format|
+      flash[:notice] = 'Qanda was successfully deleted.'
       format.html { redirect_to qandas_url }
       format.json { head :no_content }
     end
