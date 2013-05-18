@@ -47,6 +47,7 @@ class QandasController < ApplicationController
         format.html { redirect_to @qanda, notice: 'Qanda was successfully created.' }
         format.json { render json: @qanda, status: :created, location: @qanda }
       else
+        flash[:alert] = "Qanda has not been created."
         format.html { render action: "new" }
         format.json { render json: @qanda.errors, status: :unprocessable_entity }
       end
