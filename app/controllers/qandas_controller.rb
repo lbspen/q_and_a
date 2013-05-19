@@ -1,4 +1,6 @@
 class QandasController < ApplicationController
+  before_filter :find_project, :only => [:show, :edit, :update, :destroy]
+
   # GET /qandas
   # GET /qandas.json
   def index
@@ -13,8 +15,6 @@ class QandasController < ApplicationController
   # GET /qandas/1
   # GET /qandas/1.json
   def show
-    @qanda = Qanda.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @qanda }
@@ -34,7 +34,6 @@ class QandasController < ApplicationController
 
   # GET /qandas/1/edit
   def edit
-    @qanda = Qanda.find(params[:id])
   end
 
   # POST /qandas
@@ -57,8 +56,6 @@ class QandasController < ApplicationController
   # PUT /qandas/1
   # PUT /qandas/1.json
   def update
-    @qanda = Qanda.find(params[:id])
-
     respond_to do |format|
       if @qanda.update_attributes(params[:qanda])
         flash[:notice] = "Qanda was successfully updated."
@@ -74,7 +71,6 @@ class QandasController < ApplicationController
   # DELETE /qandas/1
   # DELETE /qandas/1.json
   def destroy
-    @qanda = Qanda.find(params[:id])
     @qanda.destroy
 
     respond_to do |format|
@@ -83,4 +79,14 @@ class QandasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def find_project
+    @qanda = Qanda.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The qanda you were looking" +
+    " for could not be found."
+    redirect_to qandas_path
+  end
+
 end
