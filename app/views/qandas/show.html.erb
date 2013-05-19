@@ -9,6 +9,11 @@
 </p>
 
 <span id="author">Created by <%= @qanda.creator.email %></span>
+<span id="editors">
+  <% @qanda.editors.each do |editor| %>
+    Edited by <%= editor.email %>
+  <% end %>
+</span>
 
 <%= link_to 'Edit', edit_qanda_path(@qanda) %> 
 <%= link_to 'Destroy', qanda_path(@qanda), :method => :delete,  :confirm => 'Are you sure?'  %>

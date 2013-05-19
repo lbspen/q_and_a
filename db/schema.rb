@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519172154) do
+ActiveRecord::Schema.define(:version => 20130519224515) do
 
   create_table "qandas", :force => true do |t|
     t.string   "question"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20130519172154) do
   end
 
   add_index "qandas", ["created_by"], :name => "index_qandas_on_created_by"
+
+  create_table "qandas_users", :id => false, :force => true do |t|
+    t.integer "qanda_id", :null => false
+    t.integer "user_id",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

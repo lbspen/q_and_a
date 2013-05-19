@@ -58,6 +58,7 @@ class QandasController < ApplicationController
   # PUT /qandas/1
   # PUT /qandas/1.json
   def update
+    @qanda.editors.push(current_user)
     respond_to do |format|
       if @qanda.update_attributes(params[:qanda])
         flash[:notice] = "Qanda was successfully updated."
