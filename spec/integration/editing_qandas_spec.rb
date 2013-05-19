@@ -1,8 +1,19 @@
 require 'spec_helper'
 
 feature "Editing qandas" do
+
+  let!(:user) { Factory(:confirmed_user) }
+  let!(:qanda) do 
+    qanda = Factory(:qanda, :question => "why", :answer => "because") 
+    qanda.update_attribute(:creator, user)
+    qanda
+  end
+
+  before do
+    sign_in_as!(user)
+  end
+
   scenario "Updating a qanda" do
-    Factory(:qanda, :question => "value")
     visit "/"
     click_link "Show"
     click_link "Edit"

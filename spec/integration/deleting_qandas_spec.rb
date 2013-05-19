@@ -1,8 +1,18 @@
 require 'spec_helper'
 
 feature "Deleting qandas" do
+  let!(:user) { Factory(:confirmed_user) }
+  let!(:qanda) do 
+    qanda = Factory(:qanda, :question => "why", :answer => "because") 
+    qanda.update_attribute(:creator, user)
+    qanda
+  end
+
+  before do
+    sign_in_as!(user)
+  end
+
   scenario "Deleting a qanda" do
-    Factory(:qanda, :question => "what's up?")
     visit "/"
     click_link "Show"
     click_link "Destroy"

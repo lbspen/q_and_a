@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519060636) do
+ActiveRecord::Schema.define(:version => 20130519172154) do
 
   create_table "qandas", :force => true do |t|
     t.string   "question"
     t.string   "answer"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "created_by"
   end
+
+  add_index "qandas", ["created_by"], :name => "index_qandas_on_created_by"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

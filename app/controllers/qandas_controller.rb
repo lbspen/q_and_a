@@ -1,4 +1,5 @@
 class QandasController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_project, :only => [:show, :edit, :update, :destroy]
 
   # GET /qandas
@@ -40,6 +41,7 @@ class QandasController < ApplicationController
   # POST /qandas.json
   def create
     @qanda = Qanda.new(params[:qanda])
+    @qanda.creator = current_user
 
     respond_to do |format|
       if @qanda.save
