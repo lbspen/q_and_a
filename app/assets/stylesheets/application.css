@@ -63,12 +63,12 @@ input[type=file] {
     background: #FF3444;
 }
 
-ul#tickets {
+ul#qandas {
     padding: 15px;
     list-style-type: none;
 }
 
-ul#tickets li {
+ul#qandas li {
     margin-bottom: 10px;
 }
 
@@ -95,16 +95,16 @@ ul#tickets li {
     background: #C2EC4B;
 }
 
-ul#tickets .state {
+ul#qandas .state {
     padding-right: 5px;
     /*  margin-right: 4em;*/
 }
 
-ul#tickets .state {
+ul#qandas .state {
     float: left;
 }
 
-#ticket, .comment {
+#qanda, .comment {
     margin: 15px 0 15px 0;
     padding: 15px;
     background: #eaeaea;
@@ -113,19 +113,19 @@ ul#tickets .state {
     -webkit-border-radius: 5px;
 }
 
-#ticket a {
+#qanda a {
     color: #67A300;
 }
 
-#ticket menu {
+#qanda menu {
     font-size: 75%;
 }
 
-menu, #ticket .state, .states {
+menu, #qanda .state, .states {
     float: right;
 }
 
-#ticket section {
+#qanda section {
     clear: both;
 }
 
@@ -141,11 +141,11 @@ menu, #ticket .state, .states {
     padding: 5px;
 }
 
-#ticket #tags {
+#qanda #tags {
     margin-top: 20px;
 }
 
-#ticket .tag {
+#qanda .tag {
     background: #232323;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -153,11 +153,11 @@ menu, #ticket .state, .states {
     padding: 8px;
 }
 
-#ticket .tag a {
+#qanda .tag a {
     color: white;
 }
 
-#ticket .tag .delete {
+#qanda .tag .delete {
     font-size: 125%;
     text-decoration: none;
 }
@@ -203,5 +203,8 @@ table td {
     vertical-align: top;
 }
 
+nav, #author, #editors {
+    font-size: 14px;
+}
 
 
